@@ -1,11 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/questions_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
   @override
+  State<SplashScreen> createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+
+   
+  
+  @override
   Widget build(BuildContext context) {
-    return Container(
+
+
+    
+    return Scaffold(
+    body: Container(
+      width: double.infinity,
       decoration:const BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -24,7 +38,12 @@ class SplashScreen extends StatelessWidget {
             const SizedBox(height: 20),
             const Text('Learn Flutter the fun way',style: TextStyle(color:Colors.white, fontSize: 24)),
             const SizedBox(height: 20),
-            OutlinedButton(onPressed: (){}
+            OutlinedButton(onPressed: (){
+              //write a function to navigate to the next screen and cant come back to this screen
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const QuestionsScreen()));
+
+              
+            }
             , style: OutlinedButton.styleFrom(
 
               padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
@@ -40,6 +59,7 @@ class SplashScreen extends StatelessWidget {
           ],
         ),
       
+    )
     );
   }
 }
